@@ -14,6 +14,10 @@
         h1 {
             text-align: center;
         }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -40,11 +44,25 @@
         a:hover {
             background-color: #0056b3;
         }
+        #uploadForm {
+            margin: 20px 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>欢迎下载</h1>
-    <table>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="搜索文件名..." onkeyup="searchFiles()">
+    </div>
+
+    <div id="uploadForm">
+        <input type="file" id="fileUpload">
+        <button onclick="alert('请选择文件进行上传')">上传文件</button>
+    </div>
+
+    <table id="fileTable">
         <tr>
             <th>时间</th>
             <th>备注</th>
@@ -70,5 +88,23 @@
             <td><a href="file3-url-here" download>下载</a></td>
         </tr>
     </table>
+
+    <script>
+        function searchFiles() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('fileTable');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName('td')[2]; // 文件名列
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toLowerCase().indexOf(filter) > -1 ? '' : 'none';
+                }
+            }
+        }
+    </script>
 </body>
 </html>
+
