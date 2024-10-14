@@ -7,24 +7,31 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             background-color: #f4f4f4;
-        }
-        .container {
-            text-align: center;
-            background: white;
+            margin: 0;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background: white;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
         }
         a {
             display: inline-block;
             padding: 10px 20px;
-            margin-top: 20px;
             background-color: #007BFF;
             color: white;
             text-decoration: none;
@@ -36,10 +43,24 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>欢迎下载</h1>
-        <p>请点击下面的链接下载文件：</p>
-        <a href="your-file-url-here" download>下载文件</a>
-    </div>
+    <h1>欢迎下载</h1>
+    <table>
+        <tr>
+            <th>文件名</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>文件1</td>
+            <td><a href="file1-url-here" download>下载</a></td>
+        </tr>
+        <tr>
+            <td>文件2</td>
+            <td><a href="file2-url-here" download>下载</a></td>
+        </tr>
+        <tr>
+            <td>文件3</td>
+            <td><a href="file3-url-here" download>下载</a></td>
+        </tr>
+    </table>
 </body>
 </html>
